@@ -1,0 +1,100 @@
+{
+    "books": [
+        {
+            "id": 1,
+            "title": "Sirli Ada (L'Île mystérieuse)",
+            "description": "Jul Vernin məşhur əsəri olan 'Sirli Ada', beş nəfərin bir balonda səfəri zamanı sirli bir adaya düşməsi və orada yaşadığı macəralardan bəhs edir.",
+            "price": 20.50,
+            "author": "Jules Verne",
+            "pagesCount": 450,
+            "publishedYear": 1874,
+            "genre": "Macəra",
+            "language": "Fransız",
+            "image": "https://novella.az/wp-content/uploads/2021/01/Webp.net-compress-image-75.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Kürk Mantolu Madonna",
+            "description": "Sabahattin Ali'nin məşhur əsəri 'Kürk Mantolu Madonna', içində sevgi və tənhalığı özündə birləşdirən bir roman.",
+            "price": 18.00,
+            "author": "Sabahattin Ali",
+            "pagesCount": 164,
+            "publishedYear": 1943,
+            "genre": "Roman",
+            "language": "Türk",
+            "image": "https://static.ticimax.cloud/4026/uploads/urunresimleri/kurk-mantolu-madonna---sabahattin-ali-4acf.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Bilinməyən Qadının Məktubu (Brief einer Unbekannten)",
+            "description": "Stefan Zweig'in qələmə aldığı bu qısa roman, bir qadının illərlə susduğu sevginin məktub şəklində açılması haqqındadır.",
+            "price": 12.99,
+            "author": "Stefan Zweig",
+            "pagesCount": 88,
+            "publishedYear": 1922,
+            "genre": "Psixoloji Roman",
+            "language": "Alman",
+            "image": "https://static.insales-cdn.com/images/products/1/6856/198458056/0000000411059-1.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Amfibiya Adamı",
+            "description": "Aleksandr Belyayevin fantastik əsəri olan 'Amfibiya Adamı', dəniz altında yaşayan və balıq kimi nəfəs ala bilən Ichthyanderin hekayəsindən bəhs edir. Bu əsər insanlıq, elm və əxlaq mövzularını araşdırır.",
+            "price": 14.99,
+            "author": "Aleksandr Belyayev",
+            "pagesCount": 288,
+            "publishedYear": 1928,
+            "genre": "Fantastik Roman",
+            "language": "Rus",
+            "image": "https://static.insales-cdn.com/images/products/1/2481/349530545/Belyayev_AMFIBIYA_AZE.png"
+        },
+        {
+            "id": 5,
+            "title": "Bu Şəhərdə Heç Kim Yoxdur",
+            "description": "Rövşən Abdullaoğlunun 'Bu Şəhərdə Heç Kim Yoxdur' əsəri, insanın təkliyi, daxili dünyası və cəmiyyətdəki yeri barədə düşündürən bir romanıdır. Kitabda müxtəlif həyat vəziyyətləri və insan təbiətinin mürəkkəbliyi mövzusunda dərindən fikirlər irəli sürülür.",
+            "price": 16.50,
+            "author": "Rövşən Abdullaoğlu",
+            "pagesCount": 240,
+            "publishedYear": 2015,
+            "genre": "Psixoloji Roman",
+            "language": "Azərbaycan",
+            "image": "https://static.insales-cdn.com/images/products/1/7534/922418542/68334253.jpg"
+        },
+        {
+            "id": 6,
+            "title": "The Boy in the Striped Pyjamas",
+            "description": "John Boyne'nin 'Çizgili Pijamalı Uşaq' əsəri, II Dünya Müharibəsinin ən qorxulu anlarını bir uşağın gözündən anlatır. Bu əsərdə, iki uşağın həyatı və dostluğu arasındakı sərhədlər, müharibənin və təcavüzün gətirdiyi faciəni göstərir.",
+            "price": 18.00,
+            "author": "John Boyne",
+            "pagesCount": 216,
+            "publishedYear": 2006,
+            "genre": "Tarixi Roman",
+            "language": "İngilis",
+            "image": "https://bookmart.az/wp-content/uploads/2024/04/0000000240127-1-600x770-1.jpg"
+        },
+        {
+            "id": 7,
+            "title": "Cinayət və Cəza",
+            "description": "Fyodor Dostoyevskinin 'Cinayət və Cəza' əsəri, gənc bir tələbə olan Rodion Raskolnikovun özünü bəraət qazandırmaq üçün işləmiş olduğu cinayətə qarşı içindəki vicdan əzabını və cəmiyyətdəki yerini tapmaq cəhdlərini izah edir. Əsər, insan təbiətinin, mənəviyyatın və vicdanın dərinliklərinə səyahət edir.",
+            "price": 22.00,
+            "author": "Fyodor Dostoyevski",
+            "pagesCount": 550,
+            "publishedYear": 1866,
+            "genre": "Psixoloji Roman",
+            "language": "Rus",
+            "image": "https://static.insales-cdn.com/r/KCOgwF0Alp0/rs:fit:570:570:1/q:80/plain/images/products/1/4350/171069694/43ccb52c03c85c71e64c12b4f2f67cb7.jpg@jpg"
+        },
+        {
+            "id": 8,
+            "title": "Dönüşüm (Die Verwandlung)",
+            "description": "Franz Kafka'nın 'Dönüşüm' əsəri, baş qəhrəman Gregor Samsanın bir səhər oyanıb böcəyə çevrildiyini və həyatının bu dəhşətli dəyişikliyi ilə necə üzləşdiyini izah edir. Əsər, insanın təkliyi, ailə münasibətləri və cəmiyyətin insanları necə gördüyü mövzularını araşdırır.",
+            "price": 15.00,
+            "author": "Franz Kafka",
+            "pagesCount": 144,
+            "publishedYear": 1915,
+            "genre": "Fəlsəfi və Psixoloji Roman",
+            "language": "Alman",
+            "image": "https://static.insales-cdn.com/images/products/1/3308/212487404/0000000561966-1.jpg"
+          }
+    ]
+}
