@@ -59,7 +59,7 @@ const RouTeS = [
                 element: <Dashboard/>
             },
             {
-                path: "books",
+                path: "adminbooks",
                 element: <AdminBooks/>
             },
             {
@@ -67,11 +67,11 @@ const RouTeS = [
                 element: <AddBook/>
             },
             {
-                path: "books/detail/:id",
+                path: "adminbooks/detail/:id",
                 element: <AdminBookDetail/>
             },
             {
-                path: "books/edit/:id",
+                path: "adminbooks/edit/:id",
                 element: <EditBook/>
             }
         ]

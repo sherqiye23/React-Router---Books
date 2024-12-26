@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom"
 
 export default function UserNavbar() {
+    const navLinkStyle = ({ isActive }) => 
+        isActive 
+            ? { color: "purple", textDecoration: "underline" } 
+            : { color: "black", textDecoration: "none" };
     return (
         <>
             <nav className="bg-stone-300 p-3 px-10 flex justify-between items-center">
@@ -8,17 +12,13 @@ export default function UserNavbar() {
                     <NavLink
                         className="text-2xl font-semibold mx-2"
                         to="/"
-                        style={({ isActive }) => {
-                            return isActive ? { color: "purple", textDecoration: "underline" } : { color: "black", textDecoration: "none" };
-                        }}>
+                        style={navLinkStyle}>
                         Home
                     </NavLink>
                     <NavLink
                         className="text-2xl font-semibold mx-2"
                         to="/books"
-                        style={({ isActive }) => {
-                            return isActive ? { color: "purple", textDecoration: "underline" } : { color: "black", textDecoration: "none" };
-                        }}>
+                        style={navLinkStyle}>
                         Books
                     </NavLink>
                 </div>

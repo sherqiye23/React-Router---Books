@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 export default function BookCard({ book }) {
 
     return (
-        <Card>
+        <Card key={book.id}>
             <div className='h-[300px]'>
                 <Card.Img style={{ height: "100%" }} className='h-full object-cover' variant="top" src={book.image} />
             </div>

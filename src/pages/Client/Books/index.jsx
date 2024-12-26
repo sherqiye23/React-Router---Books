@@ -1,11 +1,12 @@
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Col } from 'react-bootstrap';
 import BookCard from '../../../components/Client/Book Card';
 import booksUrl from '../../../assets/booksUrl';
-import { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
+import { ContextBooks } from '../../../context/booksContext';
 
 export default function Books() {
-    let [books, setBooks] = useState([]);
+    let { books, setBooks } = React.useContext(ContextBooks)
 
     const getBooks = () => {
         axios.get(booksUrl).then(res => {
