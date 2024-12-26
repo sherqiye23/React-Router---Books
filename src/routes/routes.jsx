@@ -63,7 +63,7 @@ const RouTeS = [
                 element: <AdminBooks/>
             },
             {
-                path: "add-book",
+                path: "adminbooks/add-book",
                 element: <AddBook/>
             },
             {
