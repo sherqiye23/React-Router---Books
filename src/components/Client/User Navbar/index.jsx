@@ -9,7 +9,7 @@ export default function UserNavbar() {
                         className="text-2xl font-semibold mx-2"
                         to="/"
                         style={({ isActive }) => {
-                            return isActive ? { color: "purple", textDecoration: "underline" } : {};
+                            return isActive ? { color: "purple", textDecoration: "underline" } : { color: "black", textDecoration: "none" };
                         }}>
                         Home
                     </NavLink>
@@ -17,7 +17,7 @@ export default function UserNavbar() {
                         className="text-2xl font-semibold mx-2"
                         to="/books"
                         style={({ isActive }) => {
-                            return isActive ? { color: "purple", textDecoration: "underline" } : {};
+                            return isActive ? { color: "purple", textDecoration: "underline" } : { color: "black", textDecoration: "none" };
                         }}>
                         Books
                     </NavLink>
