@@ -1,10 +1,30 @@
+import { favoritesContext } from "../../../context/FavoritesContext"
+import { useContext } from 'react';
+import { Container, Col } from 'react-bootstrap';
+import FavCard from "../../../components/Client/Fav Card";
+
 export default function Favorites() {
+    let { favorites } = useContext(favoritesContext)
+
     return (
         <>
-            <div
-            className="text-7xl font-bold text-gray-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                FAVORITES &#10084;
-            </div>
+            {
+                favorites.length ? (<Container className='my-10 container mx-auto p-4'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+                        {
+                            favorites.map((book) => (
+                                <Col key={book.id}>
+                                    <FavCard book={book} />
+                                </Col>
+                            ))
+                        }
+                    </div>
+                </Container>) : (<h1 className='m-10'>
+                    Sizin favorites səhifəniz boşdur.
+                </h1>)
+            }
+
         </>
+
     )
 }

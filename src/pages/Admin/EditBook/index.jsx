@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
+import booksUrl from '../../../assets/booksUrl';
+import { Alert, Button } from 'react-bootstrap';
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required('Required').max(50, 'Must be 50 characters or less').min(3, 'Must be 3 characters or more'),
@@ -24,117 +28,72 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function EditBook() {
+    let [edit, setEdit] = useState({})
+    let { id } = useParams()
+    let navigate = useNavigate()
+    const [feedback, setFeedback] = useState('');
+
+    function GetBook() {
+        axios.get(booksUrl + id).then((res) => {
+            setEdit(res.data)
+        }).catch((err) => {
+            console.error('Error fetching book data:', err);
+        });
+    }
+
+    useEffect(() => {
+        GetBook()
+    }, [id])
+
+    let [etitle, setEtitle] = useState(edit.title)
+
 
     return (
         <>
             <h1 className='text-center my-3 '>Edit Form</h1>
-
+            {feedback && <Alert variant="info" className="text-center">{feedback}</Alert>}
             <Formik
+                enableReinitialize
                 initialValues={{
-                    title: '',
-                    description: "",
-                    price: null,
-                    author: "",
-                    pagesCount: null,
-                    publishedYear: "",
-                    genre: "",
-                    language: "",
-                    image: ""
+                    title: edit.title || "",
+                    description: edit.description || "",
+                    price: edit.price || "",
+                    author: edit.author || "",
+                    pagesCount: edit.pagesCount || "",
+                    publishedYear: edit.publishedYear || "",
+                    genre: edit.genre || "",
+                    language: edit.language || "",
+                    image: edit.image || ""
                 }}
                 validationSchema={validationSchema}
                 onSubmit={(values) => {
-                    console.log('Form data:', values);
+                    axios.patch(booksUrl + id, values).then(() => {
+                        setFeedback('Book updated successfully!');
+                    }).catch((err) => {
+                        console.error('Error updating book:', err);
+                        setFeedback('Failed to update book. Please try again.');
+                    });
                 }}
             >
                 {({ isSubmitting }) => (
-                    <Form className="my-form flex flex-col max-w-screen-lg mx-auto mb-20">
-                        <div className="input-group">
-                            <Field
-                                placeholder='...edit title'
-                                className='border-2 border-black border-solid px-2 py-1 my-1 w-full'
-                                id="title"
-                                name="title"
-                                type="text" />
-                            <ErrorMessage name="title" component="div" />
-                        </div>
-                        <div className="input-group">
-                            <Field
-                                placeholder='...edit description'
-                                className='border-2 border-black border-solid px-2 py-1 my-1 w-full'
-                                id="description"
-                                name="description"
-                                type="text" />
-                            <ErrorMessage name="description" component="div" />
-                        </div>
-                        <div className="input-group">
-                            <Field
-                                placeholder='...edit price'
-                                className='border-2 border-black border-solid px-2 py-1 my-1 w-full'
-                                id="price"
-                                name="price"
-                                type="number" />
-                            <ErrorMessage name="price" component="div" />
-                        </div>
-                        <div className="input-group">
-                            <Field
-                                placeholder='...edit author'
-                                className='border-2 border-black border-solid px-2 py-1 my-1 w-full'
-                                id="author"
-                                name="author"
-                                type="text" />
-                            <ErrorMessage name="author" component="div" />
-                        </div>
-                        <div className="input-group">
-                            <Field
-                                placeholder='...edit pages count'
-                                className='border-2 border-black border-solid px-2 py-1 my-1 w-full'
-                                id="pagesCount"
-                                name="pagesCount"
-                                type="number" />
-                            <ErrorMessage name="pagesCount" component="div" />
-                        </div>
-                        <div className="input-group">
-                            <Field
-                                placeholder='...edit published year'
-                                className='border-2 border-black border-solid px-2 py-1 my-1 w-full'
-                                id="publishedYear"
-                                name="publishedYear"
-                                type="text" />
-                            <ErrorMessage name="publishedYear" component="div" />
-                        </div>
-
-                        <div className="input-group">
-                            <Field
-                                placeholder='...edit genre'
-                                className='border-2 border-black border-solid px-2 py-1 my-1 w-full'
-                                id="genre"
-                                name="genre"
-                                type="text" />
-                            <ErrorMessage name="genre" component="div" />
-                        </div>
-                        <div className="input-group">
-                            <Field
-                                placeholder='...edit language'
-                                className='border-2 border-black border-solid px-2 py-1 my-1 w-full'
-                                id="language"
-                                name="language"
-                                type="text" />
-                            <ErrorMessage name="language" component="div" />
-                        </div>
-                        <div className="input-group">
-                            <Field
-                                placeholder='...edit image'
-                                className='border-2 border-black border-solid px-2 py-1 my-1 w-full'
-                                id="image"
-                                name="image"
-                                type="text" />
-                            <ErrorMessage name="image" component="div" />
-                        </div>
-
+                    <Form className="flex flex-col max-w-screen-lg mx-auto mb-20">
+                        {['title', 'description', 'price', 'author', 'pagesCount', 'publishedYear', 'genre', 'language', 'image'].map((field) => (
+                            <div className="input-group" key={field}>
+                                <Field
+                                    placeholder={`Edit ${field}`}
+                                    className="border-2 border-black px-2 py-1 my-1 w-full"
+                                    id={field}
+                                    name={field}
+                                    type={field === 'price' || field === 'pagesCount' ? 'number' : 'text'}
+                                />
+                                <ErrorMessage name={field} component="div" className="text-red-500 text-sm" />
+                            </div>
+                        ))}
                         <button type="submit" className='bg-orange-500 max-w-40 p-2 text-white rounded-3' disabled={isSubmitting}>Edit Book</button>
                     </Form>
                 )}
             </Formik>
+            <Button variant="secondary" className='mx-20' onClick={() => navigate("/admin/adminbooks")}> Back to Books Table</Button>
         </>
     )
 }
