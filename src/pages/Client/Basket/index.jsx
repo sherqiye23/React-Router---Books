@@ -28,7 +28,7 @@ export default function Basket() {
 
     useEffect(() => {
         let total = basket.reduce((sum, total) => sum + (total.price * total.count),0)
-        setTotal(total)
+        setTotal(total.toFixed(2))
     })
 
     return (
