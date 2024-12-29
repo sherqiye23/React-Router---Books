@@ -7,7 +7,6 @@ export default function Books() {
     const { books: initialBooks } = React.useContext(ContextBooks);
     const [allBooks, setAllBooks] = useState([])
     const [books, setBooks] = useState([]);
-    console.log(initialBooks);
     
     useEffect(() => {
         setAllBooks(initialBooks);

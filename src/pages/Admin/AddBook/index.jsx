@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios';
 import booksUrl from '../../../assets/booksUrl';
+import { useNavigate } from 'react-router-dom';
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required('Required').max(50, 'Must be 50 characters or less').min(3, 'Must be 3 characters or more'),
@@ -26,6 +27,7 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function AddBook() {
+    let navigate = useNavigate()
     return (
         <>
             <h1 className='text-center my-3 '>Add Form</h1>
@@ -44,6 +46,7 @@ export default function AddBook() {
                 validationSchema={validationSchema}
                 onSubmit={(values) => {
                     axios.post(booksUrl, values).then(() => {})
+                    navigate("/admin/adminbooks")
                 }}
             >
                 {({ isSubmitting }) => (

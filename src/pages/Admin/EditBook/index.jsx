@@ -45,8 +45,6 @@ export default function EditBook() {
         GetBook()
     }, [id])
 
-    let [etitle, setEtitle] = useState(edit.title)
-
 
     return (
         <>
@@ -73,6 +71,7 @@ export default function EditBook() {
                         console.error('Error updating book:', err);
                         setFeedback('Failed to update book. Please try again.');
                     });
+                    navigate("/admin/adminbooks")
                 }}
             >
                 {({ isSubmitting }) => (
