@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { NavLink } from "react-router-dom"
 
 export default function AdminNavbar() {
@@ -7,6 +8,9 @@ export default function AdminNavbar() {
             : { color: "black", textDecoration: "none" };
     return (
         <>
+            <Helmet>
+                <title>Admin Page</title>
+            </Helmet>
             <nav className="bg-stone-300 p-3 px-10 flex justify-start items-center">
                     <NavLink
                         className="text-2xl font-semibold mx-2"

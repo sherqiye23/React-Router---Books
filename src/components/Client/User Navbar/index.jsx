@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom"
 import { favoritesContext } from "../../../context/FavoritesContext";
 import { basketContext } from "../../../context/BasketContext";
+import { Helmet } from "react-helmet";
 
 export default function UserNavbar() {
     let {favorites} = useContext(favoritesContext)
@@ -12,6 +13,10 @@ export default function UserNavbar() {
             : { color: "black", textDecoration: "none" };
     return (
         <>
+            <Helmet>
+                <title>Books</title>
+                <meta name="description" content="user book page" />
+            </Helmet>
             <nav className="bg-stone-300 p-3 px-10 flex justify-between items-center">
                 <div className="nav-link">
                     <NavLink
